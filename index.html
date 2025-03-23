@@ -19,10 +19,17 @@
 tw-enchantment.link tw-hook {
 	color: purple;
 	font-family: Arial;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">var audio = document.createElement("audio");
-audio.src = 'https://dn720303.ca.archive.org/0/items/20210419_20210419_0934/1.08%20-%20In%20solemnitate%20sancti%20Christophori%20-1.%20Responsorlum%20Oravit%20martyr%20Dei.mp3';
-audio.loop = true;
-audio.play();</script><tw-passagedata pid="1" name="Benvenuti" tags="" position="700,250" size="100,100">&lt;style&gt;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+	window.addEventListener("load", function() {
+    var audio = new Audio("https://dn720303.ca.archive.org/0/items/20210419_20210419_0934/1.08%20-%20In%20solemnitate%20sancti%20Christophori%20-1.%20Responsorlum%20Oravit%20martyr%20Dei.mp3");
+    audio.loop = true;
+    audio.play().catch(error => {
+        console.log("Autoplay blocked. User interaction required.");
+    });
+
+    window.audio = audio; // Store it globally so you can control it later
+});
+</script><tw-passagedata pid="1" name="Benvenuti" tags="" position="700,250" size="100,100">&lt;style&gt;
 /* Fullscreen background with smooth zoom effect */
 tw-story {
     background: url(https://live.staticflickr.com/1370/4730438743_db3b9efb40_b.jpg) no-repeat center center fixed;
