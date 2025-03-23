@@ -24,10 +24,18 @@ tw-enchantment.link tw-hook {
     var audio = new Audio("https://dn720303.ca.archive.org/0/items/20210419_20210419_0934/1.08%20-%20In%20solemnitate%20sancti%20Christophori%20-1.%20Responsorlum%20Oravit%20martyr%20Dei.mp3");
     audio.loop = true;
     audio.play().catch(error => {
-        console.log("Autoplay blocked. User interaction required.");
+        console.log("Autoplay blocked. Showing play button.");
+        document.getElementById("play-audio-button").style.display = "block"; // Show button if autoplay fails
     });
 
-    window.audio = audio; // Store it globally so you can control it later
+    window.audio = audio; // Store globally to control later
+});
+
+function playAudio() {
+    window.audio.play();
+    document.getElementById("play-audio-button").style.display = "none"; // Hide button after playing
+}
+
 });
 </script><tw-passagedata pid="1" name="Benvenuti" tags="" position="700,250" size="100,100">&lt;style&gt;
 /* Fullscreen background with smooth zoom effect */
@@ -167,7 +175,7 @@ html {
 &lt;/div&gt;
 
 &lt;div id=&quot;project-link&quot;&gt;[[Il Progetto]]&lt;/div&gt;
-
+<button id="play-audio-button" style="display:none; position: fixed; top: 10px; right: 10px; background: black; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;" onclick="playAudio()">▶ Play Music</button>
 
 </tw-passagedata><tw-passagedata pid="2" name="Mappa dei canti" tags="" position="850,375" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
 Scegliete la cantica:
