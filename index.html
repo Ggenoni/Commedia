@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,39 +9,91 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Commedia Barucci.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Commedia Barucci" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="5D6B2309-347D-41A4-AE6B-E41DF073D5BF" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-hook tw-link {
+<tw-storydata name="Commedia Barucci" startnode="48" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="5D6B2309-347D-41A4-AE6B-E41DF073D5BF" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html {
+    scroll-behavior: smooth;
+}
+
+tw-story {
+    background: 				url(https://as2.ftcdn.net/v2/jpg/01/22/53/87/1000_F_122538737_d04cm5HzPsGNLdP6vAw9BjgRFCYCkX9E.jpg) no-repeat center center fixed;
+    background-size: 120% auto;
+}
+
+tw-hook tw-link {
 	color: purple;
-	font-family: Arial;
+	font-family: Georgia;
 }
 
 /* Hook with Click Macro */
 tw-enchantment.link tw-hook {
 	color: purple;
-	font-family: Arial;
-}
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.audio = new Audio('https://dn720303.ca.archive.org/0/items/20210419_20210419_0934/1.08%20-%20In%20solemnitate%20sancti%20Christophori%20-1.%20Responsorlum%20Oravit%20martyr%20Dei.mp3');
-audio.loop = true;
-audio.play();</script><tw-passagedata pid="1" name="Benvenuti" tags="" position="700,250" size="100,100">&lt;style&gt;
-/* Fullscreen background with smooth zoom effect */
-tw-story {
-    background: url(https://live.staticflickr.com/1370/4730438743_db3b9efb40_b.jpg) no-repeat center center fixed;
-    background-size: cover;
-    animation: fadeIn 1.5s ease-out, zoomEffect 3s ease-out;
+	font-family: Georgia;
 }
 
-/* Smooth fade-in effect */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+tw-enchantment.link tw-hook:hover {
+  color: #32cbfa;
 }
 
-/* Subtle zoom effect */
-@keyframes zoomEffect {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.03); }
+
+tw-passage {
+	font-size: 19px;
+	line-height: 1.3em;
+  	color: #212427;
+  	font-family: Georgia;
 }
 
-/* Title styling */
+
+
+.highlight{
+  color: #9228bf;
+}
+
+
+.text {
+    backdrop-filter: blur(5px);
+    display: inline-block;
+    padding: 10px; /* Adds spacing inside */
+    border-radius: 20px; /* Softens the edges */
+  	position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: 12px;       
+}
+
+
+.clickable {
+  font-weight:bold;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Benvenuti" tags="" position="700,250" size="100,100">(if: $fromStart)[
+    &lt;style&gt;
+        /* Add animation effect only if coming from Page A */
+        /* Subtle zoom effect */
+        @keyframes zoomEffect {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        tw-story {
+            animation: zoomEffect 10s ease-out;
+        }
+        
+        #title {
+        display: none;
+        }
+        
+    &lt;/style&gt;  
+] 
+
+&lt;style&gt;
+
+tw-sidebar {
+    display: none;
+}
+
 #title {
     position: absolute;
     top: 20%;
@@ -50,12 +101,25 @@ tw-story {
     transform: translate(-50%, -50%);
     font-size: 2.5em;
     color: white;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
     font-weight: bold;
     text-align: center;
     letter-spacing: 1px;
     line-height: 1.4;
+    /* Enhanced text-shadow with multiple layers for depth */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.3),  /* Soft shadow */
+        0 0 25px rgba(255, 255, 255, 0.6), /* Glowing white */
+        0 0 5px rgba(0, 0, 0, 0.5),      /* Slight blur shadow */
+        2px 2px 15px rgba(0, 0, 0, 0.8);  /* Deep, stronger shadow */
 }
+
+/* Fullscreen background with smooth zoom effect */
+tw-story {
+    background: url(https://live.staticflickr.com/1370/4730438743_db3b9efb40_b.jpg) no-repeat center center fixed;
+    background-size: cover;
+    /*animation: zoomEffect 3s ease-out;
+}
+
 
 /* Section for buttons */
 #button-section {
@@ -113,15 +177,12 @@ tw-link:hover {
     color: #222222 !important; /* Gold effect */
 }
 
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
+
 
 /* Bottom-right project link */
 #project-link {
     position: fixed;
-    bottom: 2%;
+    top: 2%;
     right: 1%;
     font-size: 0.7em;
     color: white !important;
@@ -146,9 +207,8 @@ html {
     color: black;
 }
 
-
-
 &lt;/style&gt;
+
 
 &lt;!-- Title --&gt;
 &lt;div id=&quot;title&quot;&gt;La &lt;span class=&quot;smallcaps&quot;&gt;profezia&lt;/span&gt; nella &lt;em&gt;&lt;span class=&quot;comm&quot;&gt;Commedia&lt;/span&gt;&lt;/em&gt;&lt;/div&gt;
@@ -159,14 +219,56 @@ html {
     &lt;div class=&quot;choice-box&quot;&gt;[[Mappa dei canti|Mappa dei canti]]&lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div id=&quot;project-link&quot;&gt;[[Il Progetto]]&lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="Mappa dei canti" tags="" position="850,375" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
+&lt;div id=&quot;project-link&quot;&gt;[[Info]]&lt;/div&gt;
+
+&lt;audio
+src = &quot;https://dn720303.ca.archive.org/0/items/20210419_20210419_0934/1.08%20-%20In%20solemnitate%20sancti%20Christophori%20-1.%20Responsorlum%20Oravit%20martyr%20Dei.mp3&quot; autoplay&gt;
+</tw-passagedata><tw-passagedata pid="2" name="Mappa dei canti" tags="" position="850,375" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
 Scegliete la cantica:
 
 * [[Inferno]]
 * [[Purgatorio]]
-* [[Paradiso]]</tw-passagedata><tw-passagedata pid="3" name="Mappa delle profezie" tags="" position="575,375" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
-Scgliete la tipologia di profezie:
+* [[Paradiso]]
 
+(set: $fromStart to false)
+(click-goto:&quot;↶&quot;, &quot;Benvenuti&quot;)
+
+&lt;style&gt;
+tw-enchantment.link {
+	color: #212427;
+    opacity: .2;
+  	font-size: 66px;
+  	font-weight: 400;
+  	font-family: Verdana, sans-serif;
+}
+
+tw-enchantment.link:hover{
+	color: #212427;
+    opacity: .4;
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+// 1. Create the new icon:
+let newIcon = document.createElement(&#39;tw-icon&#39;);
+newIcon.id = &#39;custom-back-link&#39;;
+
+// 2. Set the text content:
+newIcon.textContent = &#39;↶&#39;;
+
+// 3. Create the anchor element:
+let link = document.createElement(&#39;a&#39;);
+
+// 5. Append the icon to the anchor:
+link.appendChild(newIcon);
+
+// 6. Replace the existing element (adjust selector if needed):
+let oldIcon = document.querySelector(&#39;tw-icon&#39;); //  This selector might need to be more specific.
+if (oldIcon) {
+  oldIcon.parentNode.replaceChild(link, oldIcon);
+}
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Mappa delle profezie" tags="" position="575,375" size="100,100">(enchant:?page,(bg:white))
+Scegliete la tipologia di profezie:
 
 * [[Profezie di dannati su altri dannati]]
 * [[ Profezie di personaggi su eventi e personaggi]]
@@ -174,13 +276,55 @@ Scgliete la tipologia di profezie:
 * [[Profezie su intervento/punizione divina]]
 * [[Profezie apocalittico-metastoriche (imperiali)]]
 * [[Visioni dell’agens]]
-* [[Profezie dell’auctor]]</tw-passagedata><tw-passagedata pid="4" name="Profezie di dannati su altri dannati" tags="" position="575,500" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
+* [[Profezie dell’auctor]]
+
+(set: $fromStart to false)
+(click-goto:&quot;↶&quot;, &quot;Benvenuti&quot;)
+
+&lt;style&gt;
+tw-enchantment.link {
+	color: #212427;
+    opacity: .2;
+  	font-size: 66px;
+  	font-weight: 400;
+  	font-family: Verdana, sans-serif;
+}
+
+tw-enchantment.link:hover{
+	color: #212427;
+    opacity: .4;
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+// 1. Create the new icon:
+let newIcon = document.createElement(&#39;tw-icon&#39;);
+newIcon.id = &#39;custom-back-link&#39;;
+
+// 2. Set the text content:
+newIcon.textContent = &#39;↶&#39;;
+
+// 3. Create the anchor element:
+let link = document.createElement(&#39;a&#39;);
+
+// 5. Append the icon to the anchor:
+link.appendChild(newIcon);
+
+// 6. Replace the existing element (adjust selector if needed):
+let oldIcon = document.querySelector(&#39;tw-icon&#39;); //  This selector might need to be more specific.
+if (oldIcon) {
+  oldIcon.parentNode.replaceChild(link, oldIcon);
+}
+&lt;/script&gt;
+</tw-passagedata><tw-passagedata pid="4" name="Profezie di dannati su altri dannati" tags="" position="575,500" size="100,100">(enchant:?page,(bg:white))
 Scegliete il passo:
 
 * [[If V 106-108]]
 * [[If XIX 76-87]]
 * [[If XXVIII 55-60; 64-90]]
-* [[If XXXII 67-69]]</tw-passagedata><tw-passagedata pid="5" name=" Profezie di personaggi su eventi e personaggi" tags="" position="700,500" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
+* [[If XXXII 67-69]]
+
+</tw-passagedata><tw-passagedata pid="5" name=" Profezie di personaggi su eventi e personaggi" tags="" position="700,500" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
 Scegliete il passo:
 
 * [[Pg XIV 55-66]]
@@ -261,38 +405,241 @@ Scegliete il passo:
 * [[Pd XXI 118-120]]
 * [[Pd XXII 7-18; 61-96]]
 * [[Pd  XXVII 55-66; 139-148]]
-* [[Pd XXX 133-148]]</tw-passagedata><tw-passagedata pid="14" name="If V 106-108" tags="" position="700,750" size="100,100">Inferno V, 106-108
+* [[Pd XXX 133-148]]</tw-passagedata><tw-passagedata pid="14" name="If V 106-108" tags="" position="700,750" size="100,100">&lt;div class=&quot;text&quot;&gt;&#39;&#39;Inferno V, 106-108&#39;&#39;
 
-Amor condusse noi ad una morte. 
-Caina attende chi a vita ci spense&quot;. 
-Queste parole da lor ci fuor porte.</tw-passagedata><tw-passagedata pid="15" name="If XIX 76-87" tags="" position="450,750" size="100,100">Inferno XIX, 52-58; 76-87; 106-111
+Amor condusse noi ad una morte.  
+Caina &lt;span class=&quot;highlight&quot;&gt;[attende]&lt;verbo|&lt;/span&gt; &lt;span class=&quot;highlight&quot;&gt;[chi a vita ci spense]&lt;Gianciotto|&lt;/span&gt;&quot;.  
+Queste parole da lor ci fuor porte. 
+&lt;/div&gt;
 
-Ed el gridò: &quot;Se&#39; tu già costì ritto, 
-se&#39; tu già costì ritto, Bonifazio? 
-Di parecchi anni mi mentì lo scritto.   
+|3&gt;[(click:?verbo)[(scroll: ?page, ?3)
+
+&lt;span class=&quot;clickable&quot;&gt;[//Attende//]&lt;verbo2|&lt;/span&gt;(click: ?verbo2)[: solitamente, le profezie prevedono elementi formali come il verbo al futuro; l&#39;uso qui del tempo presente mette in dubbio lo statuto profetico delle parole di Francesca.]]]
+
+|2&gt;[(click:?Gianciotto)[(scroll: ?page, ?2)
+
+&lt;span class=&quot;clickable&quot;&gt;[Gianciotto]&lt;Gianciotto2|]&lt;/span&gt;(click:?Gianciotto2)[: fratello del signore di Rimini. Morto nel 1304, all&#39;altezza del 1300 (anno dell viaggio ultraterreno dantesco) avrebbe ancora il tempo di pentirsi (cfr. episodio di [Bonconte da Montefeltro]&lt;Bonconte|). (link:&quot; &gt;&gt;&quot;)[Del resto, qui non si hanno ancora gli strumenti per dire che i dannati prevedono il futuro: Francesca dunque non dovrebbe, nell&#39;ottica dei lettori, conoscere il destino di Gianciotto.]]]
+|101&gt;[(click:?Bonconte)[|close&gt;[
+	=&gt;&lt;=
+&lt;div class=&quot;text&quot;&gt;&#39;&#39;Purgatorio V, 88-108&#39;&#39; &lt;span class=&quot;close&quot;&gt;(link:&quot;&amp;#x2715;&quot;)[(rerun: ?101)(replace:?close)[]]&lt;/span&gt;
+
+Io fui di Montefeltro, io son Bonconte;
+Giovanna o altri non ha di me cura;
+per ch’io vo tra costor con bassa fronte&quot;.
+
+E io a lui: &quot;Qual forza o qual ventura
+ti travïò sì fuor di Campaldino,
+che non si seppe mai tua sepultura?&quot;.
+
+&quot;Oh!&quot;, rispuos’elli, &quot;a piè del Casentino
+traversa un’acqua c’ ha nome l’Archiano,
+che sovra l’Ermo nasce in Apennino.
+
+Là ’ve ’l vocabol suo diventa vano,
+arriva’ io forato ne la gola,
+fuggendo a piede e sanguinando il piano.
+
+Quivi perdei la vista e la parola;
+nel nome di Maria fini’, e quivi
+caddi, e rimase la mia carne sola.
+
+Io dirò vero, e tu ’l ridì tra ’ vivi:
+l’angel di Dio mi prese, e quel d’inferno
+gridava: &quot;O tu del ciel, perché mi privi?
+
+Tu te ne porti di costui l’etterno
+per una lagrimetta che ’l mi toglie;
+ma io farò de l’altro altro governo!&quot;.&lt;/div&gt;]]]
+
+
+|1&gt;[
+(link:&quot;Commento&quot;)[(link:&quot;Nascondi commento&quot;)[(rerun:?1)]
+È questo il passo con cui Francesca chiosa il resoconto della sua [caduta]&lt;caduta|. Alcuni commentatori ritengono che sia soltanto un suo auspicio negativo(link:&quot; &gt;&gt;&quot;)[; d&#39;altra parte, non ci sono ancora state profezie di dannati su altri dannati, e questo verso in fine di discorso può passare inosservato. Solo attraverso l&#39;abile montaggio progressivo di Dante, il lettore potrà accertarsi - a posteriori - che si tratti di una profezia.] 
+|102&gt;[(click: ?caduta)[|close2&gt;[
+	=&gt;&lt;=
+&lt;div class=&quot;text&quot;&gt;&#39;&#39;Inferno V, 127-138&#39;&#39; &lt;span class=&quot;close&quot;&gt;(link:&quot;&amp;#x2715;&quot;)[(rerun: ?102)(replace:?close2)[]]&lt;/span&gt;
+
+Noi leggiavamo un giorno per diletto
+di Lancialotto come amor lo strinse;
+soli eravamo e sanza alcun sospetto.
+
+Per più fïate li occhi ci sospinse
+quella lettura, e scolorocci il viso;
+ma solo un punto fu quel che ci vinse.
+
+Quando leggemmo il disïato riso
+esser basciato da cotanto amante,
+questi, che mai da me non fia diviso,
+
+la bocca mi basciò tutto tremante.
+Galeotto fu ’l libro e chi lo scrisse:
+quel giorno più non vi leggemmo avante&quot;.&lt;div&gt;]]]
+
+La terzina, pronunciata agli inizi dell&#39;ambiente infernale, è insomma problematica. Una sola profezia precede questa, ed essa pure può non essere immediatamente colta dai lettori: si tratta di [[Inf. I, 91-111-&gt;If I 91-111]], in cui a parlare è Virgilio (considerato nel Medioevo alla stregua di un profeta).]]</tw-passagedata><tw-passagedata pid="15" name="If XIX 76-87" tags="" position="450,750" size="100,100">&lt;div class=&quot;text&quot;&gt;&#39;&#39;Inferno XIX, 52-58; 76-87; 106-111&#39;&#39;
+
+Ed &lt;span class=&quot;highlight&quot;&gt;[el]&lt;Niccolo|&lt;/span&gt; gridò: &quot;Se&#39; tu già costì ritto, 
+se&#39; tu già costì ritto, &lt;span class=&quot;highlight&quot;&gt;[Bonifazio]&lt;Bonifacio|&lt;/span&gt;? 
+Di &lt;span class=&quot;highlight&quot;&gt;[parecchi anni]&lt;anni|&lt;/span&gt; &lt;span class=&quot;highlight&quot;&gt;[mi mentì lo scritto]&lt;scritto|&lt;/span&gt;. 
+
 Se’ tu sì tosto di quell’aver sazio 
 per lo qual non temesti tòrre a ’nganno 
-la bella donna, e poi di farne strazio?&quot;. 
-⅏ ⅏ ⅏
+&lt;span class=&quot;highlight&quot;&gt;[la bella donna]&lt;chiesa|&lt;/span&gt;, e poi di farne strazio?&quot;. 
+
+⅏ ⅏ ⅏ ⅏ ⅏ ⅏
+
 “Là giù cascherò io altresì quando 
-verrà colui ch’i’ credea che tu fossi, 
+&lt;span class=&quot;highlight&quot;&gt;[verrà]&lt;futuro|&lt;/span&gt; colui ch’i’ credea che tu fossi, 
 allor ch’i’ feci ’l sùbito dimando.    
+
 Ma più è ’l tempo già che i piè mi cossi 
 e ch’i’ son stato così sottosopra, 
-ch’el non starà piantato coi piè rossi:   
+ch’el non starà piantato coi piè rossi:  
+
 ché dopo lui verrà di più laida opra, 
-di ver’ ponente, un pastor sanza legge, 
-tal che convien che lui e me ricuopra.   
-Nuovo Iasón sarà, di cui si legge 
+di ver’ ponente, &lt;span class=&quot;highlight&quot;&gt;[un pastor sanza legge]&lt;Clemente|&lt;/span&gt;, 
+tal che convien che lui e me ricuopra.  
+
+&lt;span class=&quot;highlight&quot;&gt;[Nuovo Iasón]&lt;Giasone|&lt;/span&gt; sarà, di cui si legge 
 ne’ Maccabei; e come a quel fu molle 
 suo re, così fia lui chi Francia regge&quot;.
-⅏ ⅏ ⅏
-Di voi pastor s’accorse il Vangelista, 
+
+⅏ ⅏ ⅏ ⅏ ⅏ ⅏
+
+[Di voi pastor s’accorse il Vangelista, 
 quando colei che siede sopra l’acque 
 puttaneggiar coi regi a lui fu vista;   
+
 quella che con le sette teste nacque, 
 e da le diece corna ebbe argomento, 
-fin che virtute al suo marito piacque. </tw-passagedata><tw-passagedata pid="16" name="If XXVIII 55-60; 64-90" tags="" position="600,900" size="100,100">Inferno XXVIII, 55-60; 64-90
+fin che virtute al suo marito piacque.]&lt;purgatorio| (click: ?purgatorio)[---&gt; Cfr. [[Pg. XXXII-&gt;Pg XXXII 109-159]]]&lt;/div&gt;
+
+
+|2&gt;[(click: ?Niccolo)[(scroll: ?page, ?2)(replace: ?hide2)[](replace: ?hide3)[](replace: ?hide4)[]
+
+&lt;span class=&quot;clickable&quot;&gt;[Papa Niccolò III]&lt;Niccolo2|&lt;/span&gt; (click:?Niccolo2) [: al secolo Giovanni Orsini, morto nel 1280 (cfr. [Elenco dei papi]&lt;papi|). (link: &quot;&gt;&gt;&quot;)[Si trova all&#39;Inferno da venti anni per essere stato in vita simoniaco (cfr. [Inf. XIX, 67-72]&lt;cit|).]]]]
+|101&gt;[(click: ?cit)[|close&gt;[
+	=&gt;&lt;=
+&lt;div class=&quot;text&quot;&gt;&#39;&#39;Inferno XIX, 67-72&#39;&#39;&lt;span class=&quot;close&quot;&gt;(link:&quot;&amp;#x2715;&quot;)[(rerun: ?101)(replace:?close)[]]&lt;/span&gt;
+
+Se di saper ch’i’ sia ti cal cotanto, 
+che tu abbi però la ripa corsa, 
+sappi ch’i’ fui vestito del gran manto;
+
+e veramente fui figliuol de l’orsa, 
+cupido sì per avanzar li orsatti, 
+che sù l’avere e qui me misi in borsa.&lt;/div&gt;]]]
+
+|3&gt;[(click: ?Bonifacio)[(scroll: ?page, ?3)(replace: ?hide)[](replace: ?hide3)[](replace: ?hide4)[]
+
+&lt;span class=&quot;clickable&quot;&gt;[Papa Bonifacio VIII]&lt;Bonifacio2|&lt;/span&gt;(click: ?Bonifacio2)[: al secolo Bendetto Caetani, morto nel 1303 (cfr. [Elenco dei papi]&lt;papi2|). (link: &quot;&gt;&gt;&quot;)[L&#39;accusa che Dante rivolge a Bonifacio VIII di essere illegittimamente salito al soglio pontificio con l&#39;inganno si accorda alla condanna dei Francescani spirituali (in particolare, di Ubertino da Casale). (link: &quot;&gt;&gt;&quot;)[C&#39;è chi sostiene che proprio Bonifacio VIII avrebbe indotto il suo predecessore, Celestino V (la cui identificazione con la figura di [Inf. III]&lt;cit2| è comunque dubbia),  ad abdicare.]]]]]
+|102&gt;[(click: ?cit2)[|close2&gt;[
+	=&gt;&lt;=
+&lt;div class=&quot;text&quot;&gt;&#39;&#39;Inferno III, 58-60&#39;&#39;&lt;span class=&quot;close&quot;&gt;(link:&quot;&amp;#x2715;&quot;)[(rerun: ?102)(replace:?close2)[]]&lt;/span&gt;
+
+Poscia ch’io v’ebbi alcun riconosciuto,
+vidi e conobbi l’ombra di colui
+che fece per viltade il gran rifiuto.&lt;/div&gt;]]]
+
+|4&gt;[(click: ?anni)[(scroll: ?page, ?4)(replace: ?hide2)[](replace: ?hide)[](replace: ?hide4)[]
+
+&lt;span class=&quot;clickable&quot;&gt;[//Parecchi anni//]&lt;anni2|&lt;/span&gt;(click: ?anni2)[: tra Niccolò III e Bonifacio VIII intercorrono altri quattro papi (cfr. [Elenco dei papi]&lt;papi3|) - di cui almeno tre sono con certezza collocati da Dante all&#39;Inferno. Niccolò III si aspetta che Bonifacio lo sostituisca l&#39;11 ottobre del 1303, circa tre anni e mezzo dopo il viaggio dantesco. (link: &quot;&gt;&gt;&quot;)[Alcuni commentatori moderni hanno rilevato una incoerenza tra il numero effettivo degli anni e l&#39;espressione &quot;parecchi&quot;. In effetti, qui Dante utilizza uno spettro temporale volutamente vago per introdurre un effetto sfumato - al contrario della precisione che contraddistingue le profezie che lo riguardano in prima persona.]]]]
+
+|5&gt;[(click: ?scritto)[(scroll: ?page, ?5)
+
+&lt;span class=&quot;clickable&quot;&gt;[//Lo scritto//]&lt;scritto2|&lt;/span&gt;(click: ?scritto2)[: i dannati vedono gli eventi futuri in Dio (cfr. (text-style:&quot;wavy-strike&quot;)[Nella Commedia viene detto che i peccati e i meriti vengono scritti sul libro dei peccati e dei meriti. Es. anima che dice che i suoi meriti sono segnati con i e i peccati con m]) - per quanto taluni commentatori medievali abbiano supposto che Niccolò III faccia riferimento a uno scritto da lui prodotto con arti divinatorie. (link: &quot;&gt;&gt;&quot;)[Assumendo la possibilità che la visione attraverso Dio sia falsa, Niccolò si macchia di un uteriore elemento di condanna: le sue parole suonano infatti blasfeme.]]]]
+
+|6&gt;[(click:?chiesa)[(scroll: ?page, ?6)
+
+&lt;span class=&quot;clickable&quot;&gt;[//La bella donna//]&lt;chiesa2|&lt;/span&gt;(click: ?chiesa2)[: si intende la Chiesa. Secondo un commentatore medievale, inoltre, Bonifacio avrebbe ingannato una donna per fare acquisire a suo nipote la di lei dote. (link:&quot;&gt;&gt;&quot;)[Il riferimento all&#39;abuso e allo strazio, assieme ai successivi versi 106-111, richiama con forza [[Purgatorio XXXII-&gt;Pg XXXII 109-159]]. Si configura così una rete macrostrutturale di richiami profetici: per Cesare Segre, la profezia è una dimensione latente di tutta la Commedia che si conglutina in alcuni episodi in dialogo fra di loro.]]]]
+
+|13&gt;[(click:?futuro)[(scroll: ?page, ?13)
+
+&lt;span class=&quot;clickable&quot;&gt;[//Verrà//]&lt;futuro2|&lt;/span&gt;(click:?futuro2)[: qui il verbo è correttamente al futuro, in linea con il tono profetico utilizzato.]]]
+
+|7&gt;[(click: ?Clemente)[(scroll: ?page, ?7)(replace: ?hide2)[](replace: ?hide3)[]
+
+&lt;span class=&quot;clickable&quot;&gt;[Papa Clemente V]&lt;Clemente2|&lt;/span&gt;(click: ?Clemente2)[: al secolo Bertrand de Got, morto nel 1314 (cfr. [Elenco dei papi]&lt;papi4|). (link: &quot;&gt;&gt;&quot;)[Dante lo accusa di avere concordato con il re di Francia l&#39;assunzione al trono papale (cfr. [commento di Guido da Pisa]&lt;commento|). (link:&quot;&gt;&gt;&quot;)[Tra la morte di Bonifacio VIII e quella di Clemente V intercorrono undici anni anni: qui, con un&#39;unica profezia, Dante segna il destino di due pontefici ancora in vita nel 1300 (Bertrand de Got era anzi soltanto a quell&#39;altezza un oscuro arcivescovo di Bordeaux).]]]]]
+(click: ?commento)[|42&gt;[
+(align:&quot;=&gt;&lt;=&quot;)[&#39;&#39;Commento di Guido da Pisa (1)&#39;&#39;](link:&quot;Vedi traduzione&quot;)[(replace:?try)[(link:&quot;Vedi originale&quot;)[(rerun:?42)] 
+	&lt;====&gt;
+Seconda profezia. Questo pastore che verrà di cui parla Niccolò III, fu Bertrand arcivescovo di Bordeaux, che dopo la morte di Benedetto divenne pontefice così: mentre il papato era vacante per la morte di Benedetto, l’arcivescovo di Bordeaux si accordò con Filippo il Bello che se con i suoi cardinali lo avesse reso Papa, avrebbe ricambiato con cose gradite al Re. Tra le varie cose che promise ce ne furono sette: promise che avrebbe spostato la sede papale dall’Italia alla Francia sotto la tirannia del re; che avrebbe creato dodici cardinali secondo le richieste del re; avrebbe fatto decadere l’ordine dei templari; che avrebbe condannato come eretici e idolatri il gran maestro dei templari e tutti i templari; che avrebbe dato i beni dei templari al re di Francia; che avrebbe condonato al re per dieci anni la decima delle chiese e dei beni ecclesiastici di Germania, Anglia, Spagna e Francia; che avrebbe fatto cremare il corpo di Bonifacio come eretico.]] [
+	&lt;====&gt;
+SECUNDUM VATICINIUM. Iste pastor venturus, de quo vaticinatur hic Nicholaus tertius, fuit dominus Bertrandus archiepiscopus Burdegalensis, qui post mortem Benedicti fuit factus summus Pontifex in hunc modum: Dum enim Romana Ecclesia post mortem dicti Benedicti vacaret, dictus archiepiscopus Burdegalensis composuit cum Phylippo rege Francorum, quod si sibi Romanum Pontificium cum cardinalibus procuraret, quod ipse faceret dicto regi omnia que sibi essent placita atque grata. Inter alia vero que sibi promisit fuerunt VII: Primum fuit quod promisit sibi Romanam Curiam de Ytalia extrahere et in partibus ultramontanis sub tyrannide dicti regis facere residere. Secundum, ad petitionem dicti regis creare duodecim cardinales. Tertium, ordinem Templariorum deponere. Quartum, magistrum Templi et Templarios igni tanquam hereticos et ydolatras condemnare. Quintum, omnes possessiones et bona Templariorum ipsi regi tribuere et regno Francie perpetuo confiscare. Sextum, decimam omnium ecclesiarum et bonorum ecclesiasticorum et regnorum et provinciarum Alamanie, Anglie, Ispanie, et Francie dicto regi per X annorum spatium condonare. Septimum, corpus pape Bonifatii tanquam hereticum concremare.]&lt;try|]]
+
+|11&gt;[(click:?Giasone)[(scroll: ?page, ?11)
+
+&lt;span class=&quot;clickable&quot;&gt;[Giasone]&lt;Giasone2|&lt;/span&gt;(click:?Giasone2)[: sacerdote di Gerusalemme al tempo della dominazione dei Seleucidi (dinastia di Siria, ma di ascendenza ellenistica) su Isreale. (link:&quot;&gt;&gt;&quot;)[Giasone (nome volutamente ellenizzante) promette talenti d&#39;argento al re Antioco se lo avesse nominato sommo sacerdote (cfr. [commento di Guido da Pisa]&lt;commento2|). (link:&quot;&gt;&gt;&quot;)[Attraverso il paragone, Dante denuncia il rapporto privilegiato tra Clemente V e il re di Francia Filippo IV il Bello (cedimento a una potenza straniera). La condanna profetica che Dante costruisce qui è particolarmente complessa: è una proiezione del mondo biblico ebraico sulla contemporaneità che ricrea il concetto di figura (cfr. (text-style:&quot;wavy-strike&quot;)[Idea del nuovo Giasone. Il principe dei nuovi farisei nella commedia è Bonifacio VIII - il papa è identificato come il capo degli avversari di Gesù nel nuovo testamente]). Nella implicita ribellione dei Maccabei a Giasone e Antioco si profetizza inoltre la la calata in Italia di Arrigo VII.]]]]]
+(click: ?commento2)[|52&gt;[
+(align:&quot;=&gt;&lt;=&quot;)[&#39;&#39;Commento di Guido da Pisa (2)&#39;&#39;](link:&quot;Vedi traduzione&quot;)[(replace:?try1)[(link:&quot;Vedi originale&quot;)[(rerun:?52)]
+	&lt;====&gt;
+Terza profezia. Come manifesta la parola divina nel secondo libro dei Maccabei, ci fu a Gerusalemme un sacerdote chiamato Giasone, che – poiché ambiva al sommo sacerdozio – andò dal re Antioco promettendo di dargli trecentosessanta talenti d’argento, e altri ottocento dai beni del sommo sacerdozio, si gli avesse concesso il sommo sacerdozio. Inoltre promise altri centocinquanta talenti se gli avesse concesso di edificare a Gerusalemme un ginnasio e un’efebia. Il ginnasio è un luogo dove si fanno le attività della palestra e in cui si adora Ercole; l’efebia è invece un lupanare di fanciulli, che è una cosa che Dio vietò ai figli di Israele con divieto assoluto. Avendo il re accettato tutto ciò e avendo Giasone ottenuto il sommo sacerdozio, il fuoco sacro che ardeva sull’altare e che era acceso dai tempi di Mose fu subito spento. Niccolò 
+chiama papa Clemente il nuovo Giasone poiché come il re Antioco fu condiscendente verso Giasone, ciò pronto a vendergli il sacerdozio, così Filippo fu flessibile a vendere il papato a Clemente, come spiega la glossa sopra
+ ]] [
+ 	&lt;====&gt;
+TERTIUM VATICINIUM. Sicut secundo libro Machabeorum (II Mach. 4.7-26; 5.5-10) Divina Pagina manifestat, fuit in Ierusalem quidam sacerdos nomine Iason, qui summum sacerdotium ambiens, ivit ad regem Anthiocum, promittens ei argenti talenta trecenta et sexaginta, et ex redditibus talenta octingenta, si sibi sacerdotium regia autoritate daretur. Insuper promisit ei alia centum quinquaginta talenta si sibi concederet edificare in Ierusalem gignasium et ephebiam. Est autem gignasium locus ubi addiscitur ludus palestre, in quo ludo Hercules adoratur. Ephebia vero est lupanar puerorum, que quidem duo Deus vetuit super omnia filiis Israel. Que quidem omnia cum rex annuisset et Iason principatum obtinuisset, ut dicunt Hebrei, ignis sanctus qui iugiter in altari ardebat, quique duraverat a tempore Moysi usque ad tempora illa, statim extinctus est. Vocat itaque Nicholaus papam Clementem novum Iasonem, quia sicut Iasoni rex Anthyocus fuit mollis, idest flexibilis ad vendendum sacerdotium, ita Clementi fuit flexibilis rex Phylippus ad vendendum papatum, sicut glosa superior manifestat.]&lt;try1|]]
+
+|1&gt;[
+(link:&quot;Commento&quot;)[(link:&quot;Nascondi commento&quot;)[(rerun:?1)]
+Nella terza boglia dell&#39;[VIII cerchio]&lt;malebolge| (click: ?malebolge)[(detto Malebolge: qui vengono espiati i peccati commessi con la ragione - dono di Dio in comune tra uomini e angeli -, più gravi dei peccati di violenza, che degradano gli uomini alle stato ferino)] sono puniti i [simoniaci]&lt;simoniaci|. (click:?simoniaci)[Essi derivano il nome da Simone Mago, colui che cercò di comprare da Pietro e Paolo la possibilità di fare miracoli, e sono religiosi che hanno fatto mercato di beni, poteri e ruoli ecclesiastici.]
+
+[La pena]&lt;pena|(click:?pena)[: tutta la bolgia è costellata da pozzi profondi, al cui interno sono inseriti i dannati capovolti. Si può ipotizzare che ogni pozzo accolga peccatori che ricoprivano in vita la medesima carica. Dai pozzi fanno capolino le gambe dei dannati, con le piante dei piedi lambite da fiamme.] 
+
+[Il contrappasso]&lt;contrappasso|(click:?contrappasso)[: 1) (link: &quot;Posizione capovolta&quot;)[Nel vangelo apocrifo di Pietro si legge che Pietro prega di far cadere Simone Mago mentre questi si esibisce in un trucco di volo: molte miniature raffigurano Simone Mago precipitato a terra ai piedi di Pietro.] 2) (link: &quot;Fiamme ai piedi&quot;)[ Come nella Pentecoste i discepoli sono visitati dallo Spirito Santo in forma di una fiammella posta sul capo di ciascuno, così i simoniaci, che hanno ribaltato la missione, esibiscono la fiamma sui piedi.]]
+
+La profezia di Inferno XIX è preceduta da tre profezie sull&#39;esilio, che sono più facilmente decriptabili. Qui inoltre il lettore è già informato che i dannati possono prevedere il futuro (cfr. [[Inf. X-&gt;If X 77-81; 121-132]]).]]
+
+|8&gt;[(click:?papi)[(scroll: ?page, ?8)(replace: ?hide2)[](replace: ?hide3)[](replace: ?hide4)[]
+&#39;&#39;Elenco dei papi&#39;&#39;
+
+(text-colour:#f5ab00)[Niccolò III (Giovanni Orsini), 1277 – 22 agosto 1280]
+ Martino IV (Simon de Brion), 1281-1285
+ Onorio IV (Giacomo Savelli), 1285-1287
+ Niccolò IV (Girolamo Masci), 1288-1292
+ Celestino V (Pietro Angeleri), 1294
+ Bonifacio VIII (Benedetto Caetani), 1294 – 11 ottobre 1303
+ Benedetto XI (Niccolò Boccassini), 1303-1304
+ Clemente V (Bertrand de Got), novembre 1305 – aprile 1314
+ Giovanni XXII (Jacques d’Euse), 1316-1334]&lt;hide|]
+ 
+|9&gt;[(click:?papi2)[(scroll: ?page, ?9)(replace: ?hide)[](replace: ?hide3)[](replace: ?hide4)[]
+&#39;&#39;Elenco dei papi&#39;&#39;
+
+ Niccolò III (Giovanni Orsini), 1277 – 22 agosto 1280
+ Martino IV (Simon de Brion), 1281-1285
+ Onorio IV (Giacomo Savelli), 1285-1287
+ Niccolò IV (Girolamo Masci), 1288-1292
+ Celestino V (Pietro Angeleri), 1294
+ (text-colour:#f5ab00)[Bonifacio VIII (Benedetto Caetani), 1294 – 11 ottobre 1303]
+ Benedetto XI (Niccolò Boccassini), 1303-1304
+ Clemente V (Bertrand de Got), novembre 1305 – aprile 1314
+ Giovanni XXII (Jacques d’Euse), 1316-1334]&lt;hide2|]
+ 
+ |10&gt;[(click:?papi3)[(scroll: ?page, ?10)(replace: ?hide2)[](replace: ?hide)[](replace: ?hide4)[]
+&#39;&#39;Elenco dei papi&#39;&#39;
+
+ Niccolò III (Giovanni Orsini), 1277 – 22 agosto 1280
+ (text-colour:#f5ab00)[Martino IV (Simon de Brion), 1281-1285
+ Onorio IV (Giacomo Savelli), 1285-1287
+ Niccolò IV (Girolamo Masci), 1288-1292
+ Celestino V (Pietro Angeleri), 1294]
+ Bonifacio VIII (Benedetto Caetani), 1294 – 11 ottobre 1303
+ Benedetto XI (Niccolò Boccassini), 1303-1304
+ Clemente V (Bertrand de Got), novembre 1305 – aprile 1314
+ Giovanni XXII (Jacques d’Euse), 1316-1334]&lt;hide3|]
+ 
+ |12&gt;[(click:?papi4)[(scroll: ?page, ?12)(replace: ?hide2)[](replace: ?hide3)[](replace: ?hide)[]
+&#39;&#39;Elenco dei papi&#39;&#39;
+
+ Niccolò III (Giovanni Orsini), 1277 – 22 agosto 1280
+ Martino IV (Simon de Brion), 1281-1285
+ Onorio IV (Giacomo Savelli), 1285-1287
+ Niccolò IV (Girolamo Masci), 1288-1292
+ Celestino V (Pietro Angeleri), 1294
+ Bonifacio VIII (Benedetto Caetani), 1294 – 11 ottobre 1303
+ Benedetto XI (Niccolò Boccassini), 1303-1304
+ (text-colour:#f5ab00)[Clemente V (Bertrand de Got), novembre 1305 – aprile 1314]
+ Giovanni XXII (Jacques d’Euse), 1316-1334]&lt;hide4|]
+</tw-passagedata><tw-passagedata pid="16" name="If XXVIII 55-60; 64-90" tags="" position="600,900" size="100,100">Inferno XXVIII, 55-60; 64-90
 
 &quot;Or dì a fra Dolcin dunque che s’armi, 
 tu che forse vedra’ il sole in breve, 
@@ -1040,8 +1387,47 @@ che ciò nol sazia, ma sanza decreto
 portar nel Tempio le cupide vele.   
 O Segnor mio, quando sarò io lieto 
 a veder la vendetta che, nascosa, 
-fa dolce l’ira tua nel tuo secreto? </tw-passagedata><tw-passagedata pid="46" name="Il Progetto" tags="" position="700,375" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
-Contenuti del modulo B del corso di //Studi danteschi// tenuto dal prof. Guglielmo Barucci per il corso di laurea magistrale in Lettere moderne (UniMi, a.a. 2024-2025).</tw-passagedata><tw-passagedata pid="47" name="Pd XII 46-66" tags="" position="800,1825" size="100,100">Paradiso XII, 46-66
+fa dolce l’ira tua nel tuo secreto? </tw-passagedata><tw-passagedata pid="46" name="Info" tags="" position="700,375" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))
+Contenuti del modulo B del corso di //Studi danteschi// tenuto dal prof. Guglielmo Barucci per il corso di laurea magistrale in Lettere moderne (UniMi, a.a. 2024-2025).
+
+(set: $fromStart to false)
+(click-goto:&quot;↶&quot;, &quot;Benvenuti&quot;)
+
+&lt;style&gt;
+tw-enchantment.link {
+	color: #212427;
+    opacity: .2;
+  	font-size: 66px;
+  	font-weight: 400;
+  	font-family: Verdana, sans-serif;
+}
+
+tw-enchantment.link:hover{
+	color: #212427;
+    opacity: .4;
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+// 1. Create the new icon:
+let newIcon = document.createElement(&#39;tw-icon&#39;);
+newIcon.id = &#39;custom-back-link&#39;;
+
+// 2. Set the text content:
+newIcon.textContent = &#39;↶&#39;;
+
+// 3. Create the anchor element:
+let link = document.createElement(&#39;a&#39;);
+
+// 5. Append the icon to the anchor:
+link.appendChild(newIcon);
+
+// 6. Replace the existing element (adjust selector if needed):
+let oldIcon = document.querySelector(&#39;tw-icon&#39;); //  This selector might need to be more specific.
+if (oldIcon) {
+  oldIcon.parentNode.replaceChild(link, oldIcon);
+}
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="47" name="Pd XII 46-66" tags="" position="800,1825" size="100,100">Paradiso XII, 46-66
 
 In quella parte ove surge ad aprire 
 Zefiro dolce le novelle fronde 
@@ -1063,7 +1449,70 @@ al sacro fonte intra lui e la Fede,
 u’ si dotar di mutüa salute,      
 la donna che per lui l’assenso diede, 
 vide nel sonno il mirabile frutto 
-ch’uscir dovea di lui e de le rede;</tw-passagedata></tw-storydata>
+ch’uscir dovea di lui e de le rede;</tw-passagedata><tw-passagedata pid="48" name="Start" tags="" position="700,100" size="100,100">&lt;style&gt;
+tw-hook {
+    cursor: default;
+}
+
+#pointer:hover {
+    cursor: pointer;
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.8),  /* Stronger yellow glow */
+        0 0 20px rgba(255, 215, 0, 0.6);  /* Wider outer yellow glow */
+    transition: text-shadow 0.2s ease-in-out; /* Smooth transition */
+}
+
+
+#intro-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-size: cover;
+    color: #212427; /* Dark gray text color */
+    font-weight: bold;
+    text-shadow: 
+        2px 2px 5px rgba(0, 0, 0, 0.6), /* Darker shadow for depth */
+        0 0 15px rgba(255, 215, 0, 0.6); /* Subtle yellow glow for emphasis */
+    line-height: 0.5; /* Increased line height for readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    text-align: center;
+    transition: opacity 1.5s ease-in-out;
+    padding: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8); /* Shadow to give depth */
+}
+
+.smaller {
+    font-size: 0.6em; /* Smaller size for &quot;La&quot; and &quot;nella&quot; */
+}
+
+.bigger {
+    font-size: 1.5em; /* Larger size for &quot;Profezia&quot; */
+    font-variant: small-caps;
+}
+
+.biggest {
+    font-size: 1.9em; /* Slightly bigger */
+    font-style: italic; /* Italic for &quot;Commedia&quot; */
+}
+
+    
+&lt;/style&gt;
+
+[&lt;div id=&quot;intro-screen&quot;&gt;&lt;span id=&quot;pointer&quot;&gt;&lt;span class=&quot;smaller&quot;&gt;La&lt;/span&gt; &lt;span class=&quot;bigger&quot;&gt;profezia&lt;/span&gt; &lt;span class=&quot;smaller&quot;&gt;nella&lt;/span&gt; 
+    &lt;br&gt; &lt;!-- Break line before &quot;Commedia&quot; --&gt;
+    &lt;span class=&quot;biggest&quot;&gt;Commedia&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;]&lt;hook|
+
+(set: $slowTransition to (transition-depart:&quot;dissolve&quot;) + (transition-time: 4s))
+(click-goto: ?hook , &quot;Benvenuti&quot;)
+
+(set: $fromStart to true)
+
+
+
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
