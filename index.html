@@ -95,18 +95,19 @@ tw-sidebar {
     display: none;
 }
 
+/* Ensuring the title remains centered and scales well */
 #title {
     position: absolute;
     top: 20%;
     left: 30%;
     transform: translate(-50%, -50%);
-    font-size: 2.5em;
+    font-size:max(40px, 3vw);
     color: white;
     font-weight: bold;
     text-align: center;
     letter-spacing: 1px;
-    line-height: 1.4;
-    /* Enhanced text-shadow with multiple layers for depth */
+    line-height: 1.3;
+    max-width: 80%;
     text-shadow: 
         1px 1px 2px rgba(0, 0, 0, 0.3),  /* Soft shadow */
         0 0 25px rgba(255, 255, 255, 0.6), /* Glowing white */
@@ -114,97 +115,110 @@ tw-sidebar {
         2px 2px 15px rgba(0, 0, 0, 0.8);  /* Deep, stronger shadow */
 }
 
-/* Fullscreen background with smooth zoom effect */
+/* Background image with full responsiveness */
 tw-story {
     background: url(https://live.staticflickr.com/1370/4730438743_db3b9efb40_b.jpg) no-repeat center center fixed;
     background-size: cover;
-    /*animation: zoomEffect 3s ease-out;
 }
 
-
-/* Section for buttons */
+/* Buttons section: Centers and adapts */
 #button-section {
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping for small screens */
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px); /* Soft blur for contrast */
-    background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
-    padding: 20px;
-    gap: 20px;
+    gap: 1vw; /* Responsive spacing */
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2vw;
     border-radius: 15px;
     
-    /* Moves the section LOWER */
     position: fixed;
-    bottom: 10%; /* Adjust this value for positioning */
+    bottom: 12%;
     left: 50%;
     transform: translateX(-50%);
+    max-width: 90%;
 }
 
-
-
-
-/* Button styles */
+/* Buttons */
 .choice-box {
-    background-color: #3a4c5b ;
+    background-color: #3a4c5b;
     color: white;
     border-radius: 10px;
-    font-size: 1.5em;
+    font-size:max(18px, 1.5vw);
     text-align: center;
     transition: all 0.3s ease;
-    min-width: 220px;
+    min-width: 180px;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Hover effect */
 .choice-box:hover {
-    background-color: #5f7a8c; /* Golden tint */
+    background-color: #5f7a8c;
     color: black;
-    transform: scale(1.05); /* Slight pop effect */
+    transform: scale(1.05);
 }
 
-/* Change link colors */
+/* Responsive text links */
 tw-link {
-    color: #f4f4f9 !important;  
+    color: #f4f4f9 !important;
     text-decoration: none;
     font-weight: bold;
-    padding: 40px 60px;
     display: block;
     margin: 0px;
+    padding: 2vw;
 }
 
-/* Hover effect for links */
+/* Adjusts hover effect */
 tw-link:hover {
-    color: #f1f1f1 !important; /* Gold effect */
+    color: #f1f1f1 !important;
 }
 
-
-
-/* Bottom-right project link */
+/* Info link (adjusted for better touch experience) */
 #project-link {
     position: fixed;
     top: 2%;
-    right: 1%;
-    font-size: 0.7em;
-    color: white !important;
+    right: 2%;
+    font-size:max(12px, 1vw);
+    color: white;
     text-decoration: none;
     background: #b8860b;
-    border-radius: 8px;
+    border-radius: 15px;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Make the Twine link inside fully clickable */
 #project-link tw-link {
-    display: block;
-    padding: 10px 20px;
-    text-decoration: none;
+    padding: 0.5em !important;
 }
 
-/* Hover effect */
 #project-link:hover {
-    background: rgba(255, 215, 0, 0.8); /* Gold */
+    background: rgba(255, 215, 0, 0.8);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* 📱 Mobile-Friendly Adjustments */
+@media (max-width: 600px) {
+    #title {
+        font-size: 6.8vw; /* Bigger for small screens */
+        top: 20%;
+        left: 30%;
+    }
+
+    #button-section {
+        flex-direction: column;
+        gap: 1.5w;
+        bottom: 5%;
+        padding: 4vw;
+    }
+
+    .choice-box {
+        font-size: 3.5vw;
+        min-width: 70%;
+    }
+
+    #project-link {
+        font-size: 3vw;
+    }
+}
 &lt;/style&gt;
 
 
@@ -222,11 +236,19 @@ tw-link:hover {
 &lt;audio
 src = &quot;https://dn720303.ca.archive.org/0/items/20210419_20210419_0934/1.08%20-%20In%20solemnitate%20sancti%20Christophori%20-1.%20Responsorlum%20Oravit%20martyr%20Dei.mp3&quot; autoplay&gt;
 </tw-passagedata><tw-passagedata pid="2" name="Mappa dei canti" tags="" position="850,375" size="100,100">(enchant:?page,(bg:(hsl:0,0.0714,0.8902,0.65)))
-Scegliete la cantica:
 
-* [[Inferno]]
-* [[Purgatorio]]
-* [[Paradiso]]
+&lt;div class=&quot;grid-container&quot;&gt;
+    &lt;div id=&quot;inferno&quot; class=&quot;tw-link&quot;&gt;
+       &lt;span&gt;(link: &quot;Inferno&quot;)[(goto: &quot;Inferno&quot;)]&lt;/span&gt;
+      	&lt;/div&gt;
+    &lt;div id=&quot;purgatorio&quot; class=&quot;tw-link&quot;&gt;
+       &lt;span&gt;(link: &quot;Purgatorio&quot;)[(goto: &quot;Purgatorio&quot;)]&lt;/span&gt;
+       &lt;/div&gt;
+    &lt;div id=&quot;paradiso&quot; class=&quot;tw-link&quot;&gt;
+       &lt;span&gt;(link: &quot;Paradiso&quot;)[(goto: &quot;Paradiso&quot;)]&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
 
 (set: $fromStart to false)
 (click-goto:&quot;↶&quot;, &quot;Benvenuti&quot;)
@@ -243,6 +265,131 @@ tw-enchantment.link {
 tw-enchantment.link:hover{
 	color: #212427;
     opacity: .4;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-gap: 20px; /* Gap between cells */
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin: 0;
+}
+
+/* Style for each link element */
+.tw-link {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 30%; 
+    min-height: 100%;
+    background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/6/6f/Portrait_de_Dante.jpg&#39;);
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #333;
+    border-radius: 10px;
+    text-decoration: none;
+    color: transparent;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+}
+
+tw-link {
+ 	display: block;  
+    width: 100% !important;   
+    height: 100%;
+    padding: 3vw 2vw;
+    }
+    
+tw-link:hover{
+color: maroon !important;}
+
+
+.tw-link:hover {
+    transform: scale(1.1);
+}
+
+.tw-link span {
+    visibility: hidden;
+}
+
+.tw-link:hover span {
+    visibility: visible;
+}
+
+#inferno{
+position: relative;
+background-image: url(&#39;https://cdn2.picryl.com/photo/1502/12/31/luca-signorelli-cappella-di-san-brizio-dannati-allinferno-05-965197-640.jpg&#39;);}
+
+#purgatorio{
+position:relative;
+background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/George_Dunlop_Leslie_-_Matilda_-_Dante%2C_Purgatorio%2C_Canto_28.jpg/640px-George_Dunlop_Leslie_-_Matilda_-_Dante%2C_Purgatorio%2C_Canto_28.jpg&#39;);}
+
+#paradiso{
+position: relative;
+background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/%28Venice%29_Tintoretto_-_Paradiso_%28modello%2C_1592-94%29_-_Pinacoteca_Querini_Stampalia.jpg/640px-%28Venice%29_Tintoretto_-_Paradiso_%28modello%2C_1592-94%29_-_Pinacoteca_Querini_Stampalia.jpg&#39;);}
+
+#inferno::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#inferno:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#purgatorio::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#purgatorio:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#paradiso::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#paradiso:hover::before {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Keep text above the background */
+#inferno span {
+    position: relative;
+    z-index: 1; 
+}
+
+#purgatorio span {
+    position: relative;
+    z-index: 1;
+}
+
+#paradiso span {
+    position: relative;
+    z-index: 1; 
 }
 &lt;/style&gt;
 
@@ -266,32 +413,287 @@ if (oldIcon) {
   oldIcon.parentNode.replaceChild(link, oldIcon);
 }
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="Mappa delle profezie" tags="" position="575,375" size="100,100">(enchant:?page,(bg:(hsl:0,0.0857,0.9314,0.65)))
-Scegliete la tipologia di profezie:
 
-* [[Profezie di dannati su altri dannati]]
-* [[ Profezie di personaggi su eventi e personaggi]]
-* [[Profezie a Dante sull’esilio e sul suo futuro]]
-* [[Profezie su intervento/punizione divina]]
-* [[Profezie apocalittico-metastoriche (imperiali)]]
-* [[Visioni dell’agens]]
-* [[Profezie dell’auctor]]
+&lt;div class=&quot;grid-container&quot;&gt;
+    &lt;div id=&quot;profezie-sui-dannati&quot; class=&quot;tw-link&quot;&gt;
+       &lt;span&gt;(link: &quot;Profezie sui  dannati&quot;)[(goto: &quot;Profezie di dannati su altri dannati&quot;)]&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;profezie-su-eventi&quot; class=&quot;tw-link&quot;&gt;
+        &lt;span&gt;(link: &quot;Profezie su eventi e personaggi&quot;)[(goto: &quot;Profezie di personaggi su eventi e personaggi&quot;)]&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;profezie-sull-esilio&quot; class=&quot;tw-link&quot;&gt;
+        &lt;span&gt;(link: &quot;Profezie sull’esilio&quot;)[(goto: &quot;Profezie a Dante sull’esilio e sul suo futuro&quot;)]&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;profezie-su-intervento-divino&quot; class=&quot;tw-link&quot;&gt;
+        &lt;span&gt;(link: &quot;Profezie su intervento divino&quot;)[(goto: &quot;Profezie su intervento/punizione divina&quot;)]&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;profezie-apocalittico&quot; class=&quot;tw-link&quot;&gt;
+        &lt;span&gt;(link: &quot;Profezie apocalittico metastoriche&quot;)[(goto: &quot;Profezie apocalittico-metastoriche (imperiali)&quot;)]&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;visioni-dellagens&quot; class=&quot;tw-link&quot;&gt;
+        &lt;span&gt;(link: &quot;Visioni dell’agens&quot;)[(goto: &quot;Visioni dell’agens&quot;)]&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;profezie-dell-auctor&quot; class=&quot;tw-link&quot;&gt;
+       &lt;span&gt; (link: &quot;Profezie dell’auctor&quot;)[(goto: &quot;Profezie dell’auctor&quot;)]&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
 
 (set: $fromStart to false)
 (click-goto:&quot;↶&quot;, &quot;Benvenuti&quot;)
 
 &lt;style&gt;
+
 tw-enchantment.link {
-	color: #212427;
+    color: #212427;
     opacity: .2;
-  	font-size: 66px;
-  	font-weight: 400;
-  	font-family: Verdana, sans-serif;
+    font-size: 66px;
+    font-weight: 400;
+    font-family: Verdana, sans-serif;
 }
 
-tw-enchantment.link:hover{
-	color: #212427;
+tw-enchantment.link:hover {
+    color: #212427;
     opacity: .4;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column */
+    grid-gap: 20px; /* Gap between cells */
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin: 0;
+}
+
+/* Style for each link element */
+.tw-link {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 30%; 
+    min-height: 100%;
+    background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/6/6f/Portrait_de_Dante.jpg&#39;);
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #333;
+    border-radius: 10px;
+    color: transparent;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+}
+
+tw-link {
+ 	display: block;  
+    width: 100% !important;   
+    height: 100%;
+    padding: 3vw 2vw;
+    }
+    
+tw-link:hover{
+color: maroon !important;}
+
+/* Link hover effects */
+.tw-link:hover {
+    background-image: none;
+    color: black !important;
+    background-color: #ccc;
+    transform: scale(1.1);
+}
+
+/* Text inside the links */
+.tw-link span {
+    visibility: hidden;
+}
+
+.tw-link:hover span {
+    visibility: visible;
+}
+
+#profezie-sui-dannati{
+position: relative;
+background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/0/09/Inf._06_Joseph_Anton_Koch%2C_Paolo_e_Francesca_sorpresi_da_Gianciotto%2C_1805-10c..jpg&#39;);
+}
+
+#profezie-sui-dannati::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#profezie-sui-dannati:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#profezie-sui-dannati span {
+    position: relative;
+    z-index: 1; 
+}
+
+#profezie-su-eventi{
+position:relative;
+background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/9/9d/ColonnaSlappingBoniface.jpg&#39;);
+}
+
+#profezie-su-eventi::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#profezie-su-eventi:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#profezie-su-eventi span {
+    position: relative;
+    z-index: 1; 
+}
+
+
+#profezie-sull-esilio{
+position:relative;
+background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Antonio_Cotti_-_Dante_a_Verona.jpg/960px-Antonio_Cotti_-_Dante_a_Verona.jpg&#39;);
+}
+
+#profezie-sull-esilio::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#profezie-sull-esilio:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#profezie-sull-esilio span {
+    position: relative;
+    z-index: 1; 
+}
+
+
+#profezie-su-intervento-divino{
+position:relative;
+background-image: url(&#39;https://d0.momapix.com/gilardi/320004e78cd8a76f9f94665058f7753feb75efde9121fee89bd418118885629e3064d/Image18012.jpg&#39;);
+}
+
+#profezie-su-intervento-divino::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#profezie-su-intervento-divino:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#profezie-su-intervento-divino span {
+    position: relative;
+    z-index: 1; 
+}
+
+
+#profezie-apocalittico{
+position:relative;
+background-image: url(&#39;https://lh4.googleusercontent.com/IxhBK741sgx-jplQIAKbkKbIGMa_DQmRsDQMW_KiWSuKERvgWZufL90gf21EabOqZpt8hcCyrWZHwfxs3KIfGRmTMdb5d4BB7KPKq3ohKJRPxADJIY1vWKwiO0WxjcYjNAFU3ukssy-K1vf_cHFluDxKQv-H8c1zTTftCzV2xsOOkm0nqaNVjufNcOLzhg&#39;);
+}
+
+#profezie-apocalittico::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#profezie-apocalittico:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#profezie-apocalittico span {
+    position: relative;
+    z-index: 1; 
+}
+
+#visioni-dellagens{
+position:relative;
+background-image: url(&#39;https://alleanzacattolica.org/wp-content/uploads/2022/04/Carro-trionfale.jpg&#39;);
+}
+
+#visioni-dellagens::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#visioni-dellagens:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#visioni-dellagens span {
+    position: relative;
+    z-index: 1; 
+}
+
+
+#profezie-dell-auctor{
+position:relative;
+background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Francesco_Rosselli_%28attribution%29._Pianta_della_Catena%2C_1470.jpg/800px-Francesco_Rosselli_%28attribution%29._Pianta_della_Catena%2C_1470.jpg&#39;);
+}
+
+#profezie-dell-auctor::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0); 
+    transition: background 0.3s ease-in-out;
+}
+
+#profezie-dell-auctor:hover::before {
+    background: rgba(255, 255, 255, 0.8); 
+}
+
+#profezie-dell-auctor span {
+    position: relative;
+    z-index: 1; 
+}
+
+
+
 &lt;/style&gt;
 
 &lt;script&gt;
@@ -322,7 +724,7 @@ Scegliete il passo:
 * [[If XXVIII 55-60; 64-90]]
 * [[If XXXII 67-69]]
 
-</tw-passagedata><tw-passagedata pid="5" name=" Profezie di personaggi su eventi e personaggi" tags="" position="700,500" size="100,100">(enchant:?page,(bg:(hsl:0,0.0714,0.8902,0.65)))
+</tw-passagedata><tw-passagedata pid="5" name="Profezie di personaggi su eventi e personaggi" tags="" position="700,500" size="100,100">(enchant:?page,(bg:(hsl:0,0.0714,0.8902,0.65)))
 Scegliete il passo:
 
 * [[Pg XIV 55-66]]
@@ -1413,7 +1815,7 @@ portar nel Tempio le cupide vele.
 O Segnor mio, quando sarò io lieto 
 a veder la vendetta che, nascosa, 
 fa dolce l’ira tua nel tuo secreto? </tw-passagedata><tw-passagedata pid="46" name="Info" tags="" position="700,375" size="100,100">(enchant:?page,(bg:(hsl:0,0.0714,0.8902,0.65)))
-Contenuti del modulo B del corso di &lt;a href=&quot;https://www.unimi.it/it/corsi/insegnamenti-dei-corsi-di-laurea/2025/studi-danteschi&quot; target=&quot;_blank&quot;&gt;//Studi danteschi//&lt;/a&gt; tenuto dal prof. Guglielmo Barucci per il corso di laurea magistrale in Lettere moderne (UniMi, a.a. 2024-2025).
+Contenuti del modulo B del corso di &lt;a href=&quot;https://www.unimi.it/it/corsi/insegnamenti-dei-corsi-di-laurea/2025/studi-danteschi&quot; target=&quot;_blank&quot;&gt;//Studi danteschi//&lt;/a&gt; tenuto dal prof. (text-style:&quot;underline&quot;)[Guglielmo Barucci] per il corso di laurea magistrale in Lettere moderne (UniMi, a.a. 2024-2025).
 
 
 Media utilizzati:
@@ -1421,6 +1823,20 @@ Media utilizzati:
 * &#39;&#39;Immagine di sfondo&#39;&#39;: Domenico di Michelino e Alesso Baldovinetti, &lt;a href=&quot;https://duomo.firenze.it/it/scopri/cattedrale-di-santa-maria-del-fiore/9143/domenico-di-michelino-dante-firenze-e-la-divina-commedia&quot; target=&quot;_blank&quot;&gt;//Dante, Firenze e i tre regni della Divina Commedia//&lt;/a&gt;, Firenze, Cattedrale di Santa Maria del Fiore, 1465.
 
 * &#39;&#39;Audio&#39;&#39;: I Singphoniker, &lt;a href=&quot;https://archive.org/details/20210419_20210419_0934/1.08+-+In+solemnitate+sancti+Christophori+-1.+Responsorlum+Oravit+martyr+Dei.flac&quot; target=&quot;_blank&quot;&gt;//Canti gregoriani aquileiesi//&lt;/a&gt;, //In solemnitate sancti Christophori -1. Responsorlum Oravit martyr Dei//, Milano, Stradivarius, 2001.
+
+* &#39;&#39;Profezie sui dannati&#39;&#39;: Joseph Anton Koch, &lt;a href=&quot;https://it.m.wikipedia.org/wiki/File:Inf._06_Joseph_Anton_Koch,_Paolo_e_Francesca_sorpresi_da_Gianciotto,_1805-10c..jpg&quot;&gt;//Paolo e Francesca sorpresi da Gianciotto//&lt;/a&gt;, Copenahen, Museo Thorvaldsen, 1805-1810.
+
+* &#39;&#39;Profezie su eventi e personaggi&#39;&#39;: Alphonse de Neuville, &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:ColonnaSlappingBoniface.jpg&quot;&gt;//Sciarra Colonna schiaffeggia papa Boniacio VIII//&lt;/a&gt;, collezione privata (?), 1883.
+
+* &#39;&#39;Profezie sull&#39;esilio&#39;&#39;: Antonio Cotti, &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:Antonio_Cotti_-_Dante_a_Verona.jpg&quot;&gt;//Dante a Verona//&lt;/a&gt;, collezione privata, 1879.
+
+* &#39;&#39;Profezie apocalittico metastoriche&#39;&#39;: non identificato, &lt;a href = &quot;https://www.ecclesiadei.it/il-ritratto-nellapocalisse-di-s-giovanni-la-bestia/&quot;&gt;//La Bestia//&lt;/a&gt;
+
+* &#39;&#39;Inferno&#39;&#39;: Luca Signorelli, &lt;a href= &quot;https://garystockbridge617.getarchive.net/amp/media/luca-signorelli-cappella-di-san-brizio-dannati-allinferno-05-965197&quot; &gt;//Dannati all&#39;Inferno//&lt;/a&gt; &amp;lsqb;particolare&amp;rsqb;, Orvieto, Cappella di San Brizio, 1499-1502.
+
+* &#39;&#39;Purgatorio&#39;&#39;: George Dunlop Leslie, &lt;a href=&quot;https://it.m.wikiquote.org/wiki/File:George_Dunlop_Leslie_-_Matilda_-_Dante,_Purgatorio,_Canto_28.jpg&quot;&gt;//Matilda//&lt;/a&gt;, collezione privata, 1859.
+
+* &#39;&#39;Paradiso&#39;&#39;: Tintoretto, &lt;a href=&quot;https://commons.wikimedia.org/wiki/File:%28Venice%29_Tintoretto_-_Paradiso_%28modello,_1592-94%29_-_Pinacoteca_Querini_Stampalia.jpg&quot;&gt;//Paradiso//&lt;/a&gt; (modello), Venezia, Pinacoteca Querini Stampalia, 1592-1594.
 
 (set: $fromStart to false)
 (click-goto:&quot;↶&quot;, &quot;Benvenuti&quot;)
@@ -1484,53 +1900,117 @@ vide nel sonno il mirabile frutto
 ch’uscir dovea di lui e de le rede;</tw-passagedata><tw-passagedata pid="48" name="Start" tags="" position="700,100" size="100,100">&lt;style&gt;
 tw-hook {
     cursor: default;
+    line-height: 1.2em;
 }
 
+/* Hover effect for clickable element */
 #pointer:hover {
     cursor: pointer;
     text-shadow: 
-        0 0 10px rgba(255, 215, 0, 0.8),  /* Stronger yellow glow */
-        0 0 20px rgba(255, 215, 0, 0.6);  /* Wider outer yellow glow */
-    transition: text-shadow 0.2s ease-in-out; /* Smooth transition */
+        0 0 10px rgba(255, 215, 0, 0.8),  
+        0 0 20px rgba(255, 215, 0, 0.6);
+    transition: text-shadow 0.2s ease-in-out;
 }
 
-
+/* Full-screen intro screen */
 #intro-screen {
     position: fixed;
     top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    width: 100vw; 
+    height: 100vh;
     background-size: cover;
-    color: #212427; /* Dark gray text color */
+    color: #212427;
     font-weight: bold;
     text-shadow: 
-        2px 2px 5px rgba(0, 0, 0, 0.6), /* Darker shadow for depth */
-        0 0 15px rgba(255, 215, 0, 0.6); /* Subtle yellow glow for emphasis */
-    line-height: 0.5; /* Increased line height for readability */
+        2px 2px 5px rgba(0, 0, 0, 0.6),
+        0 0 15px rgba(255, 215, 0, 0.6);
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3em;
+    flex-direction: column;
+    
+    font-size: 5vw;
     text-align: center;
     transition: opacity 1.5s ease-in-out;
-    padding: 20px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8); /* Shadow to give depth */
+    padding: 5vw;
 }
 
+/* Oval shape around text */
+#pointer {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    padding: 2vw 4vw;
+    border-radius: 50vw; /* Creates the oval effect */
+    box-shadow: 0px 0px 30px rgba(255, 215, 0, 0.6); /* Subtle glowing effect */
+    z-index: 10;
+}
+
+/* Dark overlay around the oval */
+#intro-screen::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    z-index: 5;
+}
+
+/* Adjust text sizes dynamically */
 .smaller {
-    font-size: 0.6em; /* Smaller size for &quot;La&quot; and &quot;nella&quot; */
+    font-size: 2.5vw;
 }
 
 .bigger {
-    font-size: 1.5em; /* Larger size for &quot;Profezia&quot; */
+    font-size: 4vw;
     font-variant: small-caps;
 }
 
 .biggest {
-    font-size: 1.9em; /* Slightly bigger */
-    font-style: italic; /* Italic for &quot;Commedia&quot; */
+    font-size: 5vw;
+    font-style: italic;
 }
 
+/* Mobile screens */
+@media (max-width: 600px) {
+    #intro-screen {
+        font-size: 6vw;
+        padding: 10vw;
+    }
+    .smaller {
+        font-size: 3vw;
+    }
+    .bigger {
+        font-size: 5vw;
+    }
+    .biggest {
+        font-size: 6vw;
+    }
     
+    tw-hook {
+        line-height: 1em;
+    }
+
+    #pointer {
+        padding: 3vw 6vw; /* Make oval slightly bigger on small screens */
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    #intro-screen {
+        font-size: 3em;
+    }
+    
+    tw-hook {
+        line-height: 1.4em;
+    }
+
+    #pointer {
+        padding: 1.5vw 3vw; /* Adjust oval padding for large screens */
+    }
+}
+
+
 &lt;/style&gt;
 
 [&lt;div id=&quot;intro-screen&quot;&gt;&lt;span id=&quot;pointer&quot;&gt;&lt;span class=&quot;smaller&quot;&gt;La&lt;/span&gt; &lt;span class=&quot;bigger&quot;&gt;profezia&lt;/span&gt; &lt;span class=&quot;smaller&quot;&gt;nella&lt;/span&gt; 
